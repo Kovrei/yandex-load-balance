@@ -1,4 +1,4 @@
-#Домашнее задание к занятию «Отказоустойчивость в облаке». Andrei Osipenkov
+# Домашнее задание к занятию «Отказоустойчивость в облаке». Andrei Osipenkov
 
 ## Задание 1
 
@@ -22,13 +22,16 @@
 
 1. Terraform Playbook.
 
-[Terraform Playbook]()
+[Terraform Playbook](https://github.com/Kovrei/yandex-load-balance/tree/main/terraform)
 
 2. Скриншот статуса балансировщика и целевой группы.
 
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Kovrei/yandex-load-balance/main/img/lb.PNG)
 
 3. Скриншот страницы, которая открылась при запросе IP-адреса балансировщика.
 
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Kovrei/yandex-load-balance/main/img/lbvm0.PNG)
+
+![alt text](https://raw.githubusercontent.com/Kovrei/yandex-load-balance/main/img/lbvm1.PNG)
+
 
