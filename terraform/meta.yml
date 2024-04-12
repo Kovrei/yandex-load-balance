@@ -1,0 +1,24 @@
+#cloud-config
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
+
+packages:
+  - nginx
+
+runcmd:
+  - [ systemctl, nginx-reload ]
+  - [ systemctl, enable, nginx.service ]
+  - [ systemctl, start, --no-block, nginx.service ]
+  - [ sh, -c, "echo $(hostname | cut -d '.' -f 1 ) > /var/www/html/index.html" ]
+
+users:
+  - name: andrei
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCkC9bG9fZD0q7ygJcSafUPvFgmRRzswc/lCR+wK3Smg0b5WQVysXaL3oD85SHav6vKRVgIZYM/hNGFkPA91+XtVho5Slr0y0JblxhOoUhEbTydZgiBTzw2AiCU3kkFuBY0RVwg/i2xYOMi5S4coHQZQ6EJzG8Ls1k2Hm6fbAymo7tqntZbyET/iF5XRp+HjoP4l9vTjSv+QVRRXSRpWvy4ZSr5m+OJ20/yI14s9/VvBqQc3IjJcP7bQvvDbw+NPhewoT1P9s544Z9xaiEVRS4j99pRoYR6TODuENgfbxevlvB/SPa9LaA07cVKzZU9ofJfBHm88wbfXyUIMLaSj03JkbdCIQk2zSQPkifgJLhWbu4kUFweKGBDlT9OmjBaBGANRtHkVOJmTactSb6xQLG3+4LfcrA++MAh681e5VwZuAV4CC9L5kpzR/cDemTz9JXQtWXsjdrjRuo8jdcBqGTonnsVsmTE4nzM8dkfww6Dk1T7PmqclvY956+uwNv+tQU= aos@aos-VirtualBox
